@@ -1,10 +1,10 @@
-.. Persistent Replicated Hashtable documentation master file, created by
-   sphinx-quickstart on Mon Sep  4 13:55:11 2017.
+.. Phash Table documentation master file, created by
+   sphinx-quickstart on Mon Sep 11 13:12:32 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Persistent Replicated Hashtable's documentation!
-===========================================================
+Welcome to Phash Table's documentation!
+=======================================
 
 .. toctree::
    :maxdepth: 2

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Persistent Replicated Hashtable documentation build configuration file, created by
-# sphinx-quickstart on Mon Sep  4 13:55:11 2017.
+# Phash Table documentation build configuration file, created by
+# sphinx-quickstart on Mon Sep 11 13:12:32 2017.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -31,7 +31,7 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.todo']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.graphviz']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Persistent Replicated Hashtable'
+project = 'Phash Table'
 copyright = '2017, Rishi Agrawal'
 author = 'Rishi Agrawal'
 
@@ -115,7 +115,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PersistentReplicatedHashtabledoc'
+htmlhelp_basename = 'PhashTabledoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -142,7 +142,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'PersistentReplicatedHashtable.tex', 'Persistent Replicated Hashtable Documentation',
+    (master_doc, 'PhashTable.tex', 'Phash Table Documentation',
      'Rishi Agrawal', 'manual'),
 ]
 
@@ -152,7 +152,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'persistentreplicatedhashtable', 'Persistent Replicated Hashtable Documentation',
+    (master_doc, 'phashtable', 'Phash Table Documentation',
      [author], 1)
 ]
 
@@ -163,8 +163,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'PersistentReplicatedHashtable', 'Persistent Replicated Hashtable Documentation',
-     author, 'PersistentReplicatedHashtable', 'One line description of project.',
+    (master_doc, 'PhashTable', 'Phash Table Documentation',
+     author, 'PhashTable', 'One line description of project.',
      'Miscellaneous'),
 ]
 
