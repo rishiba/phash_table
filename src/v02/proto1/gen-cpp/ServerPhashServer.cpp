@@ -16,56 +16,64 @@ using namespace ::apache::thrift::protocol;
 using namespace ::apache::thrift::transport;
 using namespace ::apache::thrift::server;
 
-using boost::shared_ptr;
 using namespace std;
+using boost::shared_ptr;
 
 
 class ReplicatedMap {
 
     private:
-        unordered_map <string, string> mymap;
+        unordered_map <string, string> *mymap;
         int count;
 
     public:
         ReplicatedMap() {
-            mymap = new (map <string, string>);
+            mymap = new (unordered_map <string, string>);
             count = 0;
         }
 
-        int insert_record(key, value) {
-            mymap.insert(make_pair<string, string> (key, value));
+        int insert_record(string key, string value, string errMsg) {
+            // mymap->insert(make_pair<string, string> (&key, &value));
+            string key1(key);
+            string value1(value);
+            mymap->insert(make_pair<string &, string&> (key1, value1));
             ++count;
 
             if (count%5 == 0) {
-                for (auto &x: mymap) {
+                for (auto &x: *mymap) {
                     cerr << "Key: " << x.first << " Value: " << x.second << endl;
                 }
             }
             return 0;
         }
 
-        string search_record(key, value) {
+        string search_record(string key, string value) {
+            return "";
         }
 
-        int delete_record(key) {
+        int delete_record(string key) {
+            return 0;
         }
 
-        int update_record(key, value) {
+        int update_record(string key, string value) {
+            return 0;
         }
-}
+};
 
 class PhashServerHandler : virtual public PhashServerIf {
     private:
         void fill_retval(ClientOpsRetval& _return, int errNo, string errMsg, string key);
 
-        void insert_record(ClientOpsRetval& _return, cons ClientOps&w) ;
+        void insert_ops(ClientOpsRetval& _return, const ClientOps& ops) ;
 
-        void process_ops(ClientOpsRetval& _return, const ClientOps&w);
+        void process_ops(ClientOpsRetval& _return, const ClientOps& ops);
+
+        ReplicatedMap *mymap;
 
     public:
         PhashServerHandler() {
             // Your initialization goes here
-            ReplicatedMap mymap = new(ReplicatedMap());
+            mymap = new ReplicatedMap();
         }
 
         void ping(Ping_ACK& _return) {
@@ -83,20 +91,20 @@ class PhashServerHandler : virtual public PhashServerIf {
 
 void PhashServerHandler::insert_ops(ClientOpsRetval& retval, const ClientOps& ops) {
 
-    string key = ops.key, value = ops.value, errMsg=""
-    int errNo = mymap.insert_record(key, value, errMsg);
+    string key = ops.key, value = ops.value, errMsg="";
+    int errNo = mymap->insert_record(key, value, errMsg);
 
     retval.key = key;
     if (errNo != 0) {
         retval.errNo = errNo;
-        retval.errMsg = errMsg;
+        retval.value = errMsg;
     } else {
-        retval.errMsg ="";
+        retval.value ="";
     }
 }
 
 void PhashServerHandler::process_ops(ClientOpsRetval& retval, const ClientOps& ops) {
-    switch (w.op_type) {
+    switch (ops.op_type) {
         case MAP_INSERT:
             insert_ops(retval, ops);
             break;
@@ -109,11 +117,11 @@ void PhashServerHandler::process_ops(ClientOpsRetval& retval, const ClientOps& o
 
 int main(int argc, char **argv) {
     int port = 9090;
-    shared_ptr<PhashServerHandler> handler(new PhashServerHandler());
-    shared_ptr<TProcessor> processor(new PhashServerProcessor(handler));
-    shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
-    shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
-    shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
+    boost::shared_ptr<PhashServerHandler> handler(new PhashServerHandler());
+    boost::shared_ptr<TProcessor> processor(new PhashServerProcessor(handler));
+    boost::shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
+    boost::shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
+    boost::shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
 
     TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
     server.serve();

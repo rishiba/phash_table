@@ -1,0 +1,34 @@
+struct Ops {
+	1: i32 op_type,
+	2: string key,
+	3: string value,
+	4: string address,
+}
+
+
+struct Ops_ACK {
+	1: string address,
+	2: i32 errno,
+	3: string errMsg,
+}
+
+
+struct Ping_ACK {
+	1: i32 errno,
+	2: string errMsg,
+}
+
+struct Error {
+	1: i32 errno,
+	2: string errMsg,
+}
+
+service PhashServer {
+	void ping(),
+	Ops_ACK submit_ops(1: Ops w),
+}
+
+service WALReplicator {
+	Ping_ACK ping(),	
+	Ops_ACK do_ops(1:Ops w),
+}

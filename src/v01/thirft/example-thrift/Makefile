@@ -1,0 +1,2 @@
+all:
+	thrift --gen cpp your_thrift_file.thrift

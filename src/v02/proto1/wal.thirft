@@ -1,0 +1,24 @@
+struct ClientOps {
+	1: i32 op_type,
+	2: string key,
+	3: string value,
+}
+
+
+struct ClientOpsRetval {
+	1: i32 errNo,
+	2: string key,
+	3: string value,	// Incase of error this will have the error string.
+}
+
+struct Ping_ACK {
+	1: i32 errNo,
+	2: string errMsg,
+}
+
+
+service PhashServer {
+	Ping_ACK ping(),
+	ClientOpsRetval submit_ops(1: ClientOps w),
+}
+
