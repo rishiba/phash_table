@@ -21,3 +21,8 @@ something_client: ClientPhashServer.o $(GEN_OBJ)
 
 clean:
 	$(RM) *.o something_server something_client
+
+
+test:
+	g++ -std=c++11 -Wall testMyMap.cpp MyMap.cpp -o myMaptest
+	g++ -std=c++11 -Wall testSlaveLocal.cpp SlaveLocal.cpp MyMap.cpp wal_types.cpp -o slaveLocaltest

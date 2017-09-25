@@ -12,7 +12,7 @@ class MyMap {
     }
 
 	int insert_record(std::string key, std::string value);
-	std::string search_record(std::string key);
+	int search_record(std::string key, std::string &retval);
 	int delete_record(std::string key);
 	int update_record(std::string key, std::string value);
 };
