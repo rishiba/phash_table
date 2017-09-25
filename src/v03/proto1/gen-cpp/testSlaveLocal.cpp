@@ -2,8 +2,10 @@
 #include "MyMap.h"
 #include "SlaveLocal.h"
 #include "wal_types.h"
+#include "wal_user.h"
 #include "ops.h"
 #include <string>
+#include <iostream>
 
 
 int test_inserts (int count) {
@@ -29,5 +31,9 @@ int test_inserts (int count) {
 int main () {
 
     int retval = test_inserts(10);
+	if (retval == SUCCESS) {
+		std::cerr << "\ntest case passed";
+	}
+
 
 }

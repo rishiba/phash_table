@@ -3,6 +3,8 @@
 #include "wal_types.h"
 #include "ops.h"
 #include "MyMap.h"
+#include "wal_user.h"
+#include <iostream>
 
 SlaveLocal::SlaveLocal() {
         map = new MyMap();
@@ -12,8 +14,13 @@ int SlaveLocal::insert_record(std::string key, std::string value) {
     return map->insert_record(key, value);
 }
 
+int SlaveLocal::search_record(std::string const key, std::string &value) {
+    return map->search_record(key, value);
+}
+
 int SlaveLocal::submit_ops(SlaveOps &ops) {
 	int optype = ops.op_type;
+    std::cerr << "\nPerfroming Operation opType: " << ops.op_type << " with seq number as " << ops.seq_number << std::endl;
 
 	switch (optype) {
 		case OP_INSERT:
@@ -21,6 +28,7 @@ int SlaveLocal::submit_ops(SlaveOps &ops) {
 			break;
 		
 		case OP_SEARCH:
+            return this->search_record(ops.key, ops.value);
 			break;
 
 		case OP_UPDATE:
@@ -32,4 +40,5 @@ int SlaveLocal::submit_ops(SlaveOps &ops) {
 		default:
 			return -1;
 	}
+	return ERR_INCORRECT_PLACE_TO_RETURN;
 }
