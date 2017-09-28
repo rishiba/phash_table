@@ -22,11 +22,14 @@ something_client: ClientPhashServer.o $(GEN_OBJ)
 clean:
 	$(RM) *.o something_server something_client
 
-client:
+client2:
 	g++ -Wall -I/usr/local/include/thrift -c ClientPhashServer.cpp -o client.o -std=c++11
 	g++ -L/usr/local/lib constants.o  PhashServer.o  client.o  types.o -o CClient -lthrift
 
 server:
+	g++ -L/usr/local/lib -std=c++11 -Wall -I/usr/local/include/thrift PhashServer.cpp MainPhashServer.cpp wal_constants.cpp wal_types.cpp OpsReplicator.cpp MyMap.cpp Slave.cpp SlaveLocal.cpp  -lthrift -o Server
+
+server2:
 	rm *o
 	g++ -std=c++11 -Wall -I/usr/local/include/thrift -c PhashServer.cpp -o PhashServer.o
 	g++ -std=c++11 -Wall -I/usr/local/include/thrift -c ServerPhashServer.cpp -o server.o

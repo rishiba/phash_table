@@ -30,7 +30,6 @@ int OpsReplicator::insert_record(std::string key, std::string value) {
     }
 }
 
-
 int OpsReplicator::update_record(std::string key) {
 }
 int OpsReplicator::delete_record(std::string key) {
