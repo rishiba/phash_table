@@ -10,6 +10,7 @@
 #include "OpsReplicator.h"
 #include "ops.h"
 #include "wal_user.h"
+#include "wal_constants.h"
 #include <iostream>
 
 using namespace ::apache::thrift;
@@ -22,11 +23,13 @@ using boost::shared_ptr;
 void PhashServerHandler::submit_ops(ClientOpsRetval& _return, const ClientOps& ops) {
 	// Your implementation goes here
 	printf("submit_ops\n");
-int retval;
+	int retval;
 	switch(ops.op_type) {
 		case OP_INSERT:
 			retval = replicator->insert_record(ops.key, ops.value);
-			if (retval != SUCCESS) {
+            if (retval == ERR_INCORRECT_PLACE_TO_RETURN) {
+           std::cerr <<"\nReturned from an incorrect place";
+            } else if (retval != SUCCESS) {
 				std::cerr <<"\nError inserting record.";
 				_return.errNo = retval;
 				_return.key = ops.key;
@@ -47,7 +50,6 @@ PhashServerHandler::PhashServerHandler() {
 void PhashServerHandler::ping(Ping_ACK &_return) {
 			// Your implementation goes her
 			printf("ping\n");
-	
 }
 
 int main(int argc, char **argv) {

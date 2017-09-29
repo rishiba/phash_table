@@ -30,7 +30,7 @@ struct SlaveOps {
 }
 
 struct SlaveOpsRetval {
-	1:	i64 seq_num_prefix,
+	1:	i64 seq_num_prefix, // this is not used as of now.
 	2: 	i64 seq_number,
 	3:	i32 client_number,
 	4:	i16 errNo,

@@ -1,7 +1,7 @@
 #ifndef __OPSREPLICATOR_H
 #define __OPSREPLICATOR_H
 #include "SlaveLocal.h"
-// #include "SlaveManager.h"
+#include "SlaveManager.h"
 #include <string>
 
 class OpsReplicator {
@@ -11,10 +11,12 @@ class OpsReplicator {
     //    int add_to_slave_quque();
       //  std::vector <Slave> SlaveManager;
         SlaveLocal *localSlave;
+        std::vector <SlaveManager *> *slaves;
         
         long sequence_number;
     private:
         long get_next_seq_num(void);
+        void push_into_slaves(SlaveOps *ops);
     public:
         OpsReplicator();
         int insert_record(std::string const key, std::string const value);

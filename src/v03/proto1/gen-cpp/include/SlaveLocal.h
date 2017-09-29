@@ -3,7 +3,7 @@
 
 #include "Slave.h"
 #include "MyMap.h"
-#include "wal_types.h"
+#include "../wal_types.h"
 
 class SlaveLocal:Slave {
 
@@ -16,7 +16,7 @@ class SlaveLocal:Slave {
     int search_record(std::string const key, std::string &value);
     public:
     	SlaveLocal();
-        int submit_ops(SlaveOps &);
+        int submit_ops(SlaveOps *);
 };
 
 #endif
