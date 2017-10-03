@@ -41,7 +41,7 @@ struct SlaveOpsRetval {
 }
 
 // The Master and slave service.
-service SlaveOpsClient {
+service SlaveOpsServer {
 	Ping_ACK ping(),
 	SlaveOpsRetval submit_ops_to_slave(1: SlaveOpsArguments ops),
 }

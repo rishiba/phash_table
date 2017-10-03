@@ -8,7 +8,6 @@
 
 
 
-
 ClientOpsServer_ping_args::~ClientOpsServer_ping_args() throw() {
 }
 

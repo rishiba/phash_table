@@ -5,6 +5,7 @@
  *  @generated
  */
 #include "PhashServer.h"
+#include "wal_constants.h"
 
 
 

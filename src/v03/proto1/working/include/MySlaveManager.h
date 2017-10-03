@@ -1,0 +1,25 @@
+#ifndef __SLAVEMANAGER_H
+#define __SLAVEMANAGER_H
+#include "Slave.h"
+#include <cstdint>
+#include <queue>
+#include <unordered_map>
+#include "../gen-cpp/wal_types.h"
+
+class SlaveManager:Slave {
+
+    private:
+        std::queue <std::int64_t> in_progress, done;
+        std::unordered_map <std::int64_t, void *> seq_vs_ops;
+
+        PhashSlaveClient *client;
+        int process_in_progress_records();
+        int process_done_records();
+        // The handler for the SlaveClient.
+    public:
+        SlaveManager();
+
+        int submit_ops(SlaveOps *);
+};
+
+#endif

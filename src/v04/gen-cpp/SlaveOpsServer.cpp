@@ -4,16 +4,16 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-#include "SlaveOpsClient.h"
+#include "SlaveOpsServer.h"
 
 
 
 
-SlaveOpsClient_ping_args::~SlaveOpsClient_ping_args() throw() {
+SlaveOpsServer_ping_args::~SlaveOpsServer_ping_args() throw() {
 }
 
 
-uint32_t SlaveOpsClient_ping_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t SlaveOpsServer_ping_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -41,10 +41,10 @@ uint32_t SlaveOpsClient_ping_args::read(::apache::thrift::protocol::TProtocol* i
   return xfer;
 }
 
-uint32_t SlaveOpsClient_ping_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t SlaveOpsServer_ping_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("SlaveOpsClient_ping_args");
+  xfer += oprot->writeStructBegin("SlaveOpsServer_ping_args");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
@@ -52,14 +52,14 @@ uint32_t SlaveOpsClient_ping_args::write(::apache::thrift::protocol::TProtocol* 
 }
 
 
-SlaveOpsClient_ping_pargs::~SlaveOpsClient_ping_pargs() throw() {
+SlaveOpsServer_ping_pargs::~SlaveOpsServer_ping_pargs() throw() {
 }
 
 
-uint32_t SlaveOpsClient_ping_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t SlaveOpsServer_ping_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("SlaveOpsClient_ping_pargs");
+  xfer += oprot->writeStructBegin("SlaveOpsServer_ping_pargs");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
@@ -67,11 +67,11 @@ uint32_t SlaveOpsClient_ping_pargs::write(::apache::thrift::protocol::TProtocol*
 }
 
 
-SlaveOpsClient_ping_result::~SlaveOpsClient_ping_result() throw() {
+SlaveOpsServer_ping_result::~SlaveOpsServer_ping_result() throw() {
 }
 
 
-uint32_t SlaveOpsClient_ping_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t SlaveOpsServer_ping_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -112,11 +112,11 @@ uint32_t SlaveOpsClient_ping_result::read(::apache::thrift::protocol::TProtocol*
   return xfer;
 }
 
-uint32_t SlaveOpsClient_ping_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t SlaveOpsServer_ping_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("SlaveOpsClient_ping_result");
+  xfer += oprot->writeStructBegin("SlaveOpsServer_ping_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -129,11 +129,11 @@ uint32_t SlaveOpsClient_ping_result::write(::apache::thrift::protocol::TProtocol
 }
 
 
-SlaveOpsClient_ping_presult::~SlaveOpsClient_ping_presult() throw() {
+SlaveOpsServer_ping_presult::~SlaveOpsServer_ping_presult() throw() {
 }
 
 
-uint32_t SlaveOpsClient_ping_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t SlaveOpsServer_ping_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -175,11 +175,11 @@ uint32_t SlaveOpsClient_ping_presult::read(::apache::thrift::protocol::TProtocol
 }
 
 
-SlaveOpsClient_submit_ops_to_slave_args::~SlaveOpsClient_submit_ops_to_slave_args() throw() {
+SlaveOpsServer_submit_ops_to_slave_args::~SlaveOpsServer_submit_ops_to_slave_args() throw() {
 }
 
 
-uint32_t SlaveOpsClient_submit_ops_to_slave_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t SlaveOpsServer_submit_ops_to_slave_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -220,10 +220,10 @@ uint32_t SlaveOpsClient_submit_ops_to_slave_args::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t SlaveOpsClient_submit_ops_to_slave_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t SlaveOpsServer_submit_ops_to_slave_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("SlaveOpsClient_submit_ops_to_slave_args");
+  xfer += oprot->writeStructBegin("SlaveOpsServer_submit_ops_to_slave_args");
 
   xfer += oprot->writeFieldBegin("ops", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->ops.write(oprot);
@@ -235,14 +235,14 @@ uint32_t SlaveOpsClient_submit_ops_to_slave_args::write(::apache::thrift::protoc
 }
 
 
-SlaveOpsClient_submit_ops_to_slave_pargs::~SlaveOpsClient_submit_ops_to_slave_pargs() throw() {
+SlaveOpsServer_submit_ops_to_slave_pargs::~SlaveOpsServer_submit_ops_to_slave_pargs() throw() {
 }
 
 
-uint32_t SlaveOpsClient_submit_ops_to_slave_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t SlaveOpsServer_submit_ops_to_slave_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("SlaveOpsClient_submit_ops_to_slave_pargs");
+  xfer += oprot->writeStructBegin("SlaveOpsServer_submit_ops_to_slave_pargs");
 
   xfer += oprot->writeFieldBegin("ops", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->ops)).write(oprot);
@@ -254,11 +254,11 @@ uint32_t SlaveOpsClient_submit_ops_to_slave_pargs::write(::apache::thrift::proto
 }
 
 
-SlaveOpsClient_submit_ops_to_slave_result::~SlaveOpsClient_submit_ops_to_slave_result() throw() {
+SlaveOpsServer_submit_ops_to_slave_result::~SlaveOpsServer_submit_ops_to_slave_result() throw() {
 }
 
 
-uint32_t SlaveOpsClient_submit_ops_to_slave_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t SlaveOpsServer_submit_ops_to_slave_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -299,11 +299,11 @@ uint32_t SlaveOpsClient_submit_ops_to_slave_result::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t SlaveOpsClient_submit_ops_to_slave_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t SlaveOpsServer_submit_ops_to_slave_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("SlaveOpsClient_submit_ops_to_slave_result");
+  xfer += oprot->writeStructBegin("SlaveOpsServer_submit_ops_to_slave_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -316,11 +316,11 @@ uint32_t SlaveOpsClient_submit_ops_to_slave_result::write(::apache::thrift::prot
 }
 
 
-SlaveOpsClient_submit_ops_to_slave_presult::~SlaveOpsClient_submit_ops_to_slave_presult() throw() {
+SlaveOpsServer_submit_ops_to_slave_presult::~SlaveOpsServer_submit_ops_to_slave_presult() throw() {
 }
 
 
-uint32_t SlaveOpsClient_submit_ops_to_slave_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t SlaveOpsServer_submit_ops_to_slave_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -361,18 +361,18 @@ uint32_t SlaveOpsClient_submit_ops_to_slave_presult::read(::apache::thrift::prot
   return xfer;
 }
 
-void SlaveOpsClientClient::ping(Ping_ACK& _return)
+void SlaveOpsServerClient::ping(Ping_ACK& _return)
 {
   send_ping();
   recv_ping(_return);
 }
 
-void SlaveOpsClientClient::send_ping()
+void SlaveOpsServerClient::send_ping()
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("ping", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  SlaveOpsClient_ping_pargs args;
+  SlaveOpsServer_ping_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -380,7 +380,7 @@ void SlaveOpsClientClient::send_ping()
   oprot_->getTransport()->flush();
 }
 
-void SlaveOpsClientClient::recv_ping(Ping_ACK& _return)
+void SlaveOpsServerClient::recv_ping(Ping_ACK& _return)
 {
 
   int32_t rseqid = 0;
@@ -405,7 +405,7 @@ void SlaveOpsClientClient::recv_ping(Ping_ACK& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  SlaveOpsClient_ping_presult result;
+  SlaveOpsServer_ping_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -418,18 +418,18 @@ void SlaveOpsClientClient::recv_ping(Ping_ACK& _return)
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "ping failed: unknown result");
 }
 
-void SlaveOpsClientClient::submit_ops_to_slave(SlaveOpsRetval& _return, const SlaveOpsArguments& ops)
+void SlaveOpsServerClient::submit_ops_to_slave(SlaveOpsRetval& _return, const SlaveOpsArguments& ops)
 {
   send_submit_ops_to_slave(ops);
   recv_submit_ops_to_slave(_return);
 }
 
-void SlaveOpsClientClient::send_submit_ops_to_slave(const SlaveOpsArguments& ops)
+void SlaveOpsServerClient::send_submit_ops_to_slave(const SlaveOpsArguments& ops)
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("submit_ops_to_slave", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  SlaveOpsClient_submit_ops_to_slave_pargs args;
+  SlaveOpsServer_submit_ops_to_slave_pargs args;
   args.ops = &ops;
   args.write(oprot_);
 
@@ -438,7 +438,7 @@ void SlaveOpsClientClient::send_submit_ops_to_slave(const SlaveOpsArguments& ops
   oprot_->getTransport()->flush();
 }
 
-void SlaveOpsClientClient::recv_submit_ops_to_slave(SlaveOpsRetval& _return)
+void SlaveOpsServerClient::recv_submit_ops_to_slave(SlaveOpsRetval& _return)
 {
 
   int32_t rseqid = 0;
@@ -463,7 +463,7 @@ void SlaveOpsClientClient::recv_submit_ops_to_slave(SlaveOpsRetval& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  SlaveOpsClient_submit_ops_to_slave_presult result;
+  SlaveOpsServer_submit_ops_to_slave_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -476,7 +476,7 @@ void SlaveOpsClientClient::recv_submit_ops_to_slave(SlaveOpsRetval& _return)
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "submit_ops_to_slave failed: unknown result");
 }
 
-bool SlaveOpsClientProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
+bool SlaveOpsServerProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
   ProcessMap::iterator pfn;
   pfn = processMap_.find(fname);
   if (pfn == processMap_.end()) {
@@ -495,34 +495,34 @@ bool SlaveOpsClientProcessor::dispatchCall(::apache::thrift::protocol::TProtocol
   return true;
 }
 
-void SlaveOpsClientProcessor::process_ping(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void SlaveOpsServerProcessor::process_ping(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("SlaveOpsClient.ping", callContext);
+    ctx = this->eventHandler_->getContext("SlaveOpsServer.ping", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "SlaveOpsClient.ping");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "SlaveOpsServer.ping");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "SlaveOpsClient.ping");
+    this->eventHandler_->preRead(ctx, "SlaveOpsServer.ping");
   }
 
-  SlaveOpsClient_ping_args args;
+  SlaveOpsServer_ping_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "SlaveOpsClient.ping", bytes);
+    this->eventHandler_->postRead(ctx, "SlaveOpsServer.ping", bytes);
   }
 
-  SlaveOpsClient_ping_result result;
+  SlaveOpsServer_ping_result result;
   try {
     iface_->ping(result.success);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "SlaveOpsClient.ping");
+      this->eventHandler_->handlerError(ctx, "SlaveOpsServer.ping");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
@@ -535,7 +535,7 @@ void SlaveOpsClientProcessor::process_ping(int32_t seqid, ::apache::thrift::prot
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "SlaveOpsClient.ping");
+    this->eventHandler_->preWrite(ctx, "SlaveOpsServer.ping");
   }
 
   oprot->writeMessageBegin("ping", ::apache::thrift::protocol::T_REPLY, seqid);
@@ -545,38 +545,38 @@ void SlaveOpsClientProcessor::process_ping(int32_t seqid, ::apache::thrift::prot
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "SlaveOpsClient.ping", bytes);
+    this->eventHandler_->postWrite(ctx, "SlaveOpsServer.ping", bytes);
   }
 }
 
-void SlaveOpsClientProcessor::process_submit_ops_to_slave(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void SlaveOpsServerProcessor::process_submit_ops_to_slave(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("SlaveOpsClient.submit_ops_to_slave", callContext);
+    ctx = this->eventHandler_->getContext("SlaveOpsServer.submit_ops_to_slave", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "SlaveOpsClient.submit_ops_to_slave");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "SlaveOpsServer.submit_ops_to_slave");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "SlaveOpsClient.submit_ops_to_slave");
+    this->eventHandler_->preRead(ctx, "SlaveOpsServer.submit_ops_to_slave");
   }
 
-  SlaveOpsClient_submit_ops_to_slave_args args;
+  SlaveOpsServer_submit_ops_to_slave_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "SlaveOpsClient.submit_ops_to_slave", bytes);
+    this->eventHandler_->postRead(ctx, "SlaveOpsServer.submit_ops_to_slave", bytes);
   }
 
-  SlaveOpsClient_submit_ops_to_slave_result result;
+  SlaveOpsServer_submit_ops_to_slave_result result;
   try {
     iface_->submit_ops_to_slave(result.success, args.ops);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "SlaveOpsClient.submit_ops_to_slave");
+      this->eventHandler_->handlerError(ctx, "SlaveOpsServer.submit_ops_to_slave");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
@@ -589,7 +589,7 @@ void SlaveOpsClientProcessor::process_submit_ops_to_slave(int32_t seqid, ::apach
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "SlaveOpsClient.submit_ops_to_slave");
+    this->eventHandler_->preWrite(ctx, "SlaveOpsServer.submit_ops_to_slave");
   }
 
   oprot->writeMessageBegin("submit_ops_to_slave", ::apache::thrift::protocol::T_REPLY, seqid);
@@ -599,30 +599,30 @@ void SlaveOpsClientProcessor::process_submit_ops_to_slave(int32_t seqid, ::apach
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "SlaveOpsClient.submit_ops_to_slave", bytes);
+    this->eventHandler_->postWrite(ctx, "SlaveOpsServer.submit_ops_to_slave", bytes);
   }
 }
 
-::boost::shared_ptr< ::apache::thrift::TProcessor > SlaveOpsClientProcessorFactory::getProcessor(const ::apache::thrift::TConnectionInfo& connInfo) {
-  ::apache::thrift::ReleaseHandler< SlaveOpsClientIfFactory > cleanup(handlerFactory_);
-  ::boost::shared_ptr< SlaveOpsClientIf > handler(handlerFactory_->getHandler(connInfo), cleanup);
-  ::boost::shared_ptr< ::apache::thrift::TProcessor > processor(new SlaveOpsClientProcessor(handler));
+::boost::shared_ptr< ::apache::thrift::TProcessor > SlaveOpsServerProcessorFactory::getProcessor(const ::apache::thrift::TConnectionInfo& connInfo) {
+  ::apache::thrift::ReleaseHandler< SlaveOpsServerIfFactory > cleanup(handlerFactory_);
+  ::boost::shared_ptr< SlaveOpsServerIf > handler(handlerFactory_->getHandler(connInfo), cleanup);
+  ::boost::shared_ptr< ::apache::thrift::TProcessor > processor(new SlaveOpsServerProcessor(handler));
   return processor;
 }
 
-void SlaveOpsClientConcurrentClient::ping(Ping_ACK& _return)
+void SlaveOpsServerConcurrentClient::ping(Ping_ACK& _return)
 {
   int32_t seqid = send_ping();
   recv_ping(_return, seqid);
 }
 
-int32_t SlaveOpsClientConcurrentClient::send_ping()
+int32_t SlaveOpsServerConcurrentClient::send_ping()
 {
   int32_t cseqid = this->sync_.generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(&this->sync_);
   oprot_->writeMessageBegin("ping", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  SlaveOpsClient_ping_pargs args;
+  SlaveOpsServer_ping_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -633,7 +633,7 @@ int32_t SlaveOpsClientConcurrentClient::send_ping()
   return cseqid;
 }
 
-void SlaveOpsClientConcurrentClient::recv_ping(Ping_ACK& _return, const int32_t seqid)
+void SlaveOpsServerConcurrentClient::recv_ping(Ping_ACK& _return, const int32_t seqid)
 {
 
   int32_t rseqid = 0;
@@ -671,7 +671,7 @@ void SlaveOpsClientConcurrentClient::recv_ping(Ping_ACK& _return, const int32_t 
         using ::apache::thrift::protocol::TProtocolException;
         throw TProtocolException(TProtocolException::INVALID_DATA);
       }
-      SlaveOpsClient_ping_presult result;
+      SlaveOpsServer_ping_presult result;
       result.success = &_return;
       result.read(iprot_);
       iprot_->readMessageEnd();
@@ -693,19 +693,19 @@ void SlaveOpsClientConcurrentClient::recv_ping(Ping_ACK& _return, const int32_t 
   } // end while(true)
 }
 
-void SlaveOpsClientConcurrentClient::submit_ops_to_slave(SlaveOpsRetval& _return, const SlaveOpsArguments& ops)
+void SlaveOpsServerConcurrentClient::submit_ops_to_slave(SlaveOpsRetval& _return, const SlaveOpsArguments& ops)
 {
   int32_t seqid = send_submit_ops_to_slave(ops);
   recv_submit_ops_to_slave(_return, seqid);
 }
 
-int32_t SlaveOpsClientConcurrentClient::send_submit_ops_to_slave(const SlaveOpsArguments& ops)
+int32_t SlaveOpsServerConcurrentClient::send_submit_ops_to_slave(const SlaveOpsArguments& ops)
 {
   int32_t cseqid = this->sync_.generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(&this->sync_);
   oprot_->writeMessageBegin("submit_ops_to_slave", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  SlaveOpsClient_submit_ops_to_slave_pargs args;
+  SlaveOpsServer_submit_ops_to_slave_pargs args;
   args.ops = &ops;
   args.write(oprot_);
 
@@ -717,7 +717,7 @@ int32_t SlaveOpsClientConcurrentClient::send_submit_ops_to_slave(const SlaveOpsA
   return cseqid;
 }
 
-void SlaveOpsClientConcurrentClient::recv_submit_ops_to_slave(SlaveOpsRetval& _return, const int32_t seqid)
+void SlaveOpsServerConcurrentClient::recv_submit_ops_to_slave(SlaveOpsRetval& _return, const int32_t seqid)
 {
 
   int32_t rseqid = 0;
@@ -755,7 +755,7 @@ void SlaveOpsClientConcurrentClient::recv_submit_ops_to_slave(SlaveOpsRetval& _r
         using ::apache::thrift::protocol::TProtocolException;
         throw TProtocolException(TProtocolException::INVALID_DATA);
       }
-      SlaveOpsClient_submit_ops_to_slave_presult result;
+      SlaveOpsServer_submit_ops_to_slave_presult result;
       result.success = &_return;
       result.read(iprot_);
       iprot_->readMessageEnd();

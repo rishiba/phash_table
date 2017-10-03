@@ -12,7 +12,7 @@ OpsReplicator::OpsReplicator() {
     localSlave = new SlaveLocal();
 	sequence_number = 0;
 	slaves = new std::vector<SlaveManager *>;
-    slaves->push_back(new SlaveManager());
+    slaves->push_back(new SlaveManager(9050, "localhost"));
 }
 
 long OpsReplicator::get_next_seq_num(void) {

@@ -558,31 +558,31 @@ void SlaveOps::printTo(std::ostream& out) const {
 }
 
 
-SlaveOpsRetval::~SlaveOpsRetval() throw() {
+SlaveOpsAck::~SlaveOpsAck() throw() {
 }
 
 
-void SlaveOpsRetval::__set_seq_num_prefix(const int64_t val) {
+void SlaveOpsAck::__set_seq_num_prefix(const int64_t val) {
   this->seq_num_prefix = val;
 }
 
-void SlaveOpsRetval::__set_seq_number(const int64_t val) {
+void SlaveOpsAck::__set_seq_number(const int64_t val) {
   this->seq_number = val;
 }
 
-void SlaveOpsRetval::__set_client_number(const int32_t val) {
+void SlaveOpsAck::__set_client_number(const int32_t val) {
   this->client_number = val;
 }
 
-void SlaveOpsRetval::__set_errNo(const int16_t val) {
+void SlaveOpsAck::__set_errNo(const int16_t val) {
   this->errNo = val;
 }
 
-void SlaveOpsRetval::__set_errMsg(const std::string& val) {
+void SlaveOpsAck::__set_errMsg(const std::string& val) {
   this->errMsg = val;
 }
 
-uint32_t SlaveOpsRetval::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t SlaveOpsAck::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -655,10 +655,10 @@ uint32_t SlaveOpsRetval::read(::apache::thrift::protocol::TProtocol* iprot) {
   return xfer;
 }
 
-uint32_t SlaveOpsRetval::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t SlaveOpsAck::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("SlaveOpsRetval");
+  xfer += oprot->writeStructBegin("SlaveOpsAck");
 
   xfer += oprot->writeFieldBegin("seq_num_prefix", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->seq_num_prefix);
@@ -685,7 +685,7 @@ uint32_t SlaveOpsRetval::write(::apache::thrift::protocol::TProtocol* oprot) con
   return xfer;
 }
 
-void swap(SlaveOpsRetval &a, SlaveOpsRetval &b) {
+void swap(SlaveOpsAck &a, SlaveOpsAck &b) {
   using ::std::swap;
   swap(a.seq_num_prefix, b.seq_num_prefix);
   swap(a.seq_number, b.seq_number);
@@ -695,7 +695,7 @@ void swap(SlaveOpsRetval &a, SlaveOpsRetval &b) {
   swap(a.__isset, b.__isset);
 }
 
-SlaveOpsRetval::SlaveOpsRetval(const SlaveOpsRetval& other8) {
+SlaveOpsAck::SlaveOpsAck(const SlaveOpsAck& other8) {
   seq_num_prefix = other8.seq_num_prefix;
   seq_number = other8.seq_number;
   client_number = other8.client_number;
@@ -703,7 +703,7 @@ SlaveOpsRetval::SlaveOpsRetval(const SlaveOpsRetval& other8) {
   errMsg = other8.errMsg;
   __isset = other8.__isset;
 }
-SlaveOpsRetval& SlaveOpsRetval::operator=(const SlaveOpsRetval& other9) {
+SlaveOpsAck& SlaveOpsAck::operator=(const SlaveOpsAck& other9) {
   seq_num_prefix = other9.seq_num_prefix;
   seq_number = other9.seq_number;
   client_number = other9.client_number;
@@ -712,9 +712,9 @@ SlaveOpsRetval& SlaveOpsRetval::operator=(const SlaveOpsRetval& other9) {
   __isset = other9.__isset;
   return *this;
 }
-void SlaveOpsRetval::printTo(std::ostream& out) const {
+void SlaveOpsAck::printTo(std::ostream& out) const {
   using ::apache::thrift::to_string;
-  out << "SlaveOpsRetval(";
+  out << "SlaveOpsAck(";
   out << "seq_num_prefix=" << to_string(seq_num_prefix);
   out << ", " << "seq_number=" << to_string(seq_number);
   out << ", " << "client_number=" << to_string(client_number);

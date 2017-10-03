@@ -4,8 +4,8 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-#ifndef SlaveOpsClient_H
-#define SlaveOpsClient_H
+#ifndef SlaveOpsServer_H
+#define SlaveOpsServer_H
 
 #include <thrift/TDispatchProcessor.h>
 #include <thrift/async/TConcurrentClientSyncInfo.h>
@@ -18,40 +18,40 @@
   #pragma warning (disable : 4250 ) //inheriting methods via dominance 
 #endif
 
-class SlaveOpsClientIf {
+class SlaveOpsServerIf {
  public:
-  virtual ~SlaveOpsClientIf() {}
+  virtual ~SlaveOpsServerIf() {}
   virtual void ping(Ping_ACK& _return) = 0;
   virtual void submit_ops_to_slave(SlaveOpsRetval& _return, const SlaveOpsArguments& ops) = 0;
 };
 
-class SlaveOpsClientIfFactory {
+class SlaveOpsServerIfFactory {
  public:
-  typedef SlaveOpsClientIf Handler;
+  typedef SlaveOpsServerIf Handler;
 
-  virtual ~SlaveOpsClientIfFactory() {}
+  virtual ~SlaveOpsServerIfFactory() {}
 
-  virtual SlaveOpsClientIf* getHandler(const ::apache::thrift::TConnectionInfo& connInfo) = 0;
-  virtual void releaseHandler(SlaveOpsClientIf* /* handler */) = 0;
+  virtual SlaveOpsServerIf* getHandler(const ::apache::thrift::TConnectionInfo& connInfo) = 0;
+  virtual void releaseHandler(SlaveOpsServerIf* /* handler */) = 0;
 };
 
-class SlaveOpsClientIfSingletonFactory : virtual public SlaveOpsClientIfFactory {
+class SlaveOpsServerIfSingletonFactory : virtual public SlaveOpsServerIfFactory {
  public:
-  SlaveOpsClientIfSingletonFactory(const boost::shared_ptr<SlaveOpsClientIf>& iface) : iface_(iface) {}
-  virtual ~SlaveOpsClientIfSingletonFactory() {}
+  SlaveOpsServerIfSingletonFactory(const boost::shared_ptr<SlaveOpsServerIf>& iface) : iface_(iface) {}
+  virtual ~SlaveOpsServerIfSingletonFactory() {}
 
-  virtual SlaveOpsClientIf* getHandler(const ::apache::thrift::TConnectionInfo&) {
+  virtual SlaveOpsServerIf* getHandler(const ::apache::thrift::TConnectionInfo&) {
     return iface_.get();
   }
-  virtual void releaseHandler(SlaveOpsClientIf* /* handler */) {}
+  virtual void releaseHandler(SlaveOpsServerIf* /* handler */) {}
 
  protected:
-  boost::shared_ptr<SlaveOpsClientIf> iface_;
+  boost::shared_ptr<SlaveOpsServerIf> iface_;
 };
 
-class SlaveOpsClientNull : virtual public SlaveOpsClientIf {
+class SlaveOpsServerNull : virtual public SlaveOpsServerIf {
  public:
-  virtual ~SlaveOpsClientNull() {}
+  virtual ~SlaveOpsServerNull() {}
   void ping(Ping_ACK& /* _return */) {
     return;
   }
@@ -61,25 +61,25 @@ class SlaveOpsClientNull : virtual public SlaveOpsClientIf {
 };
 
 
-class SlaveOpsClient_ping_args {
+class SlaveOpsServer_ping_args {
  public:
 
-  SlaveOpsClient_ping_args(const SlaveOpsClient_ping_args&);
-  SlaveOpsClient_ping_args& operator=(const SlaveOpsClient_ping_args&);
-  SlaveOpsClient_ping_args() {
+  SlaveOpsServer_ping_args(const SlaveOpsServer_ping_args&);
+  SlaveOpsServer_ping_args& operator=(const SlaveOpsServer_ping_args&);
+  SlaveOpsServer_ping_args() {
   }
 
-  virtual ~SlaveOpsClient_ping_args() throw();
+  virtual ~SlaveOpsServer_ping_args() throw();
 
-  bool operator == (const SlaveOpsClient_ping_args & /* rhs */) const
+  bool operator == (const SlaveOpsServer_ping_args & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const SlaveOpsClient_ping_args &rhs) const {
+  bool operator != (const SlaveOpsServer_ping_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const SlaveOpsClient_ping_args & ) const;
+  bool operator < (const SlaveOpsServer_ping_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -87,102 +87,102 @@ class SlaveOpsClient_ping_args {
 };
 
 
-class SlaveOpsClient_ping_pargs {
+class SlaveOpsServer_ping_pargs {
  public:
 
 
-  virtual ~SlaveOpsClient_ping_pargs() throw();
+  virtual ~SlaveOpsServer_ping_pargs() throw();
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _SlaveOpsClient_ping_result__isset {
-  _SlaveOpsClient_ping_result__isset() : success(false) {}
+typedef struct _SlaveOpsServer_ping_result__isset {
+  _SlaveOpsServer_ping_result__isset() : success(false) {}
   bool success :1;
-} _SlaveOpsClient_ping_result__isset;
+} _SlaveOpsServer_ping_result__isset;
 
-class SlaveOpsClient_ping_result {
+class SlaveOpsServer_ping_result {
  public:
 
-  SlaveOpsClient_ping_result(const SlaveOpsClient_ping_result&);
-  SlaveOpsClient_ping_result& operator=(const SlaveOpsClient_ping_result&);
-  SlaveOpsClient_ping_result() {
+  SlaveOpsServer_ping_result(const SlaveOpsServer_ping_result&);
+  SlaveOpsServer_ping_result& operator=(const SlaveOpsServer_ping_result&);
+  SlaveOpsServer_ping_result() {
   }
 
-  virtual ~SlaveOpsClient_ping_result() throw();
+  virtual ~SlaveOpsServer_ping_result() throw();
   Ping_ACK success;
 
-  _SlaveOpsClient_ping_result__isset __isset;
+  _SlaveOpsServer_ping_result__isset __isset;
 
   void __set_success(const Ping_ACK& val);
 
-  bool operator == (const SlaveOpsClient_ping_result & rhs) const
+  bool operator == (const SlaveOpsServer_ping_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const SlaveOpsClient_ping_result &rhs) const {
+  bool operator != (const SlaveOpsServer_ping_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const SlaveOpsClient_ping_result & ) const;
+  bool operator < (const SlaveOpsServer_ping_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _SlaveOpsClient_ping_presult__isset {
-  _SlaveOpsClient_ping_presult__isset() : success(false) {}
+typedef struct _SlaveOpsServer_ping_presult__isset {
+  _SlaveOpsServer_ping_presult__isset() : success(false) {}
   bool success :1;
-} _SlaveOpsClient_ping_presult__isset;
+} _SlaveOpsServer_ping_presult__isset;
 
-class SlaveOpsClient_ping_presult {
+class SlaveOpsServer_ping_presult {
  public:
 
 
-  virtual ~SlaveOpsClient_ping_presult() throw();
+  virtual ~SlaveOpsServer_ping_presult() throw();
   Ping_ACK* success;
 
-  _SlaveOpsClient_ping_presult__isset __isset;
+  _SlaveOpsServer_ping_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _SlaveOpsClient_submit_ops_to_slave_args__isset {
-  _SlaveOpsClient_submit_ops_to_slave_args__isset() : ops(false) {}
+typedef struct _SlaveOpsServer_submit_ops_to_slave_args__isset {
+  _SlaveOpsServer_submit_ops_to_slave_args__isset() : ops(false) {}
   bool ops :1;
-} _SlaveOpsClient_submit_ops_to_slave_args__isset;
+} _SlaveOpsServer_submit_ops_to_slave_args__isset;
 
-class SlaveOpsClient_submit_ops_to_slave_args {
+class SlaveOpsServer_submit_ops_to_slave_args {
  public:
 
-  SlaveOpsClient_submit_ops_to_slave_args(const SlaveOpsClient_submit_ops_to_slave_args&);
-  SlaveOpsClient_submit_ops_to_slave_args& operator=(const SlaveOpsClient_submit_ops_to_slave_args&);
-  SlaveOpsClient_submit_ops_to_slave_args() {
+  SlaveOpsServer_submit_ops_to_slave_args(const SlaveOpsServer_submit_ops_to_slave_args&);
+  SlaveOpsServer_submit_ops_to_slave_args& operator=(const SlaveOpsServer_submit_ops_to_slave_args&);
+  SlaveOpsServer_submit_ops_to_slave_args() {
   }
 
-  virtual ~SlaveOpsClient_submit_ops_to_slave_args() throw();
+  virtual ~SlaveOpsServer_submit_ops_to_slave_args() throw();
   SlaveOpsArguments ops;
 
-  _SlaveOpsClient_submit_ops_to_slave_args__isset __isset;
+  _SlaveOpsServer_submit_ops_to_slave_args__isset __isset;
 
   void __set_ops(const SlaveOpsArguments& val);
 
-  bool operator == (const SlaveOpsClient_submit_ops_to_slave_args & rhs) const
+  bool operator == (const SlaveOpsServer_submit_ops_to_slave_args & rhs) const
   {
     if (!(ops == rhs.ops))
       return false;
     return true;
   }
-  bool operator != (const SlaveOpsClient_submit_ops_to_slave_args &rhs) const {
+  bool operator != (const SlaveOpsServer_submit_ops_to_slave_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const SlaveOpsClient_submit_ops_to_slave_args & ) const;
+  bool operator < (const SlaveOpsServer_submit_ops_to_slave_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -190,78 +190,78 @@ class SlaveOpsClient_submit_ops_to_slave_args {
 };
 
 
-class SlaveOpsClient_submit_ops_to_slave_pargs {
+class SlaveOpsServer_submit_ops_to_slave_pargs {
  public:
 
 
-  virtual ~SlaveOpsClient_submit_ops_to_slave_pargs() throw();
+  virtual ~SlaveOpsServer_submit_ops_to_slave_pargs() throw();
   const SlaveOpsArguments* ops;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _SlaveOpsClient_submit_ops_to_slave_result__isset {
-  _SlaveOpsClient_submit_ops_to_slave_result__isset() : success(false) {}
+typedef struct _SlaveOpsServer_submit_ops_to_slave_result__isset {
+  _SlaveOpsServer_submit_ops_to_slave_result__isset() : success(false) {}
   bool success :1;
-} _SlaveOpsClient_submit_ops_to_slave_result__isset;
+} _SlaveOpsServer_submit_ops_to_slave_result__isset;
 
-class SlaveOpsClient_submit_ops_to_slave_result {
+class SlaveOpsServer_submit_ops_to_slave_result {
  public:
 
-  SlaveOpsClient_submit_ops_to_slave_result(const SlaveOpsClient_submit_ops_to_slave_result&);
-  SlaveOpsClient_submit_ops_to_slave_result& operator=(const SlaveOpsClient_submit_ops_to_slave_result&);
-  SlaveOpsClient_submit_ops_to_slave_result() {
+  SlaveOpsServer_submit_ops_to_slave_result(const SlaveOpsServer_submit_ops_to_slave_result&);
+  SlaveOpsServer_submit_ops_to_slave_result& operator=(const SlaveOpsServer_submit_ops_to_slave_result&);
+  SlaveOpsServer_submit_ops_to_slave_result() {
   }
 
-  virtual ~SlaveOpsClient_submit_ops_to_slave_result() throw();
+  virtual ~SlaveOpsServer_submit_ops_to_slave_result() throw();
   SlaveOpsRetval success;
 
-  _SlaveOpsClient_submit_ops_to_slave_result__isset __isset;
+  _SlaveOpsServer_submit_ops_to_slave_result__isset __isset;
 
   void __set_success(const SlaveOpsRetval& val);
 
-  bool operator == (const SlaveOpsClient_submit_ops_to_slave_result & rhs) const
+  bool operator == (const SlaveOpsServer_submit_ops_to_slave_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const SlaveOpsClient_submit_ops_to_slave_result &rhs) const {
+  bool operator != (const SlaveOpsServer_submit_ops_to_slave_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const SlaveOpsClient_submit_ops_to_slave_result & ) const;
+  bool operator < (const SlaveOpsServer_submit_ops_to_slave_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _SlaveOpsClient_submit_ops_to_slave_presult__isset {
-  _SlaveOpsClient_submit_ops_to_slave_presult__isset() : success(false) {}
+typedef struct _SlaveOpsServer_submit_ops_to_slave_presult__isset {
+  _SlaveOpsServer_submit_ops_to_slave_presult__isset() : success(false) {}
   bool success :1;
-} _SlaveOpsClient_submit_ops_to_slave_presult__isset;
+} _SlaveOpsServer_submit_ops_to_slave_presult__isset;
 
-class SlaveOpsClient_submit_ops_to_slave_presult {
+class SlaveOpsServer_submit_ops_to_slave_presult {
  public:
 
 
-  virtual ~SlaveOpsClient_submit_ops_to_slave_presult() throw();
+  virtual ~SlaveOpsServer_submit_ops_to_slave_presult() throw();
   SlaveOpsRetval* success;
 
-  _SlaveOpsClient_submit_ops_to_slave_presult__isset __isset;
+  _SlaveOpsServer_submit_ops_to_slave_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-class SlaveOpsClientClient : virtual public SlaveOpsClientIf {
+class SlaveOpsServerClient : virtual public SlaveOpsServerIf {
  public:
-  SlaveOpsClientClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) {
+  SlaveOpsServerClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) {
     setProtocol(prot);
   }
-  SlaveOpsClientClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> iprot, boost::shared_ptr< ::apache::thrift::protocol::TProtocol> oprot) {
+  SlaveOpsServerClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> iprot, boost::shared_ptr< ::apache::thrift::protocol::TProtocol> oprot) {
     setProtocol(iprot,oprot);
   }
  private:
@@ -294,46 +294,46 @@ class SlaveOpsClientClient : virtual public SlaveOpsClientIf {
   ::apache::thrift::protocol::TProtocol* oprot_;
 };
 
-class SlaveOpsClientProcessor : public ::apache::thrift::TDispatchProcessor {
+class SlaveOpsServerProcessor : public ::apache::thrift::TDispatchProcessor {
  protected:
-  boost::shared_ptr<SlaveOpsClientIf> iface_;
+  boost::shared_ptr<SlaveOpsServerIf> iface_;
   virtual bool dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext);
  private:
-  typedef  void (SlaveOpsClientProcessor::*ProcessFunction)(int32_t, ::apache::thrift::protocol::TProtocol*, ::apache::thrift::protocol::TProtocol*, void*);
+  typedef  void (SlaveOpsServerProcessor::*ProcessFunction)(int32_t, ::apache::thrift::protocol::TProtocol*, ::apache::thrift::protocol::TProtocol*, void*);
   typedef std::map<std::string, ProcessFunction> ProcessMap;
   ProcessMap processMap_;
   void process_ping(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_submit_ops_to_slave(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
  public:
-  SlaveOpsClientProcessor(boost::shared_ptr<SlaveOpsClientIf> iface) :
+  SlaveOpsServerProcessor(boost::shared_ptr<SlaveOpsServerIf> iface) :
     iface_(iface) {
-    processMap_["ping"] = &SlaveOpsClientProcessor::process_ping;
-    processMap_["submit_ops_to_slave"] = &SlaveOpsClientProcessor::process_submit_ops_to_slave;
+    processMap_["ping"] = &SlaveOpsServerProcessor::process_ping;
+    processMap_["submit_ops_to_slave"] = &SlaveOpsServerProcessor::process_submit_ops_to_slave;
   }
 
-  virtual ~SlaveOpsClientProcessor() {}
+  virtual ~SlaveOpsServerProcessor() {}
 };
 
-class SlaveOpsClientProcessorFactory : public ::apache::thrift::TProcessorFactory {
+class SlaveOpsServerProcessorFactory : public ::apache::thrift::TProcessorFactory {
  public:
-  SlaveOpsClientProcessorFactory(const ::boost::shared_ptr< SlaveOpsClientIfFactory >& handlerFactory) :
+  SlaveOpsServerProcessorFactory(const ::boost::shared_ptr< SlaveOpsServerIfFactory >& handlerFactory) :
       handlerFactory_(handlerFactory) {}
 
   ::boost::shared_ptr< ::apache::thrift::TProcessor > getProcessor(const ::apache::thrift::TConnectionInfo& connInfo);
 
  protected:
-  ::boost::shared_ptr< SlaveOpsClientIfFactory > handlerFactory_;
+  ::boost::shared_ptr< SlaveOpsServerIfFactory > handlerFactory_;
 };
 
-class SlaveOpsClientMultiface : virtual public SlaveOpsClientIf {
+class SlaveOpsServerMultiface : virtual public SlaveOpsServerIf {
  public:
-  SlaveOpsClientMultiface(std::vector<boost::shared_ptr<SlaveOpsClientIf> >& ifaces) : ifaces_(ifaces) {
+  SlaveOpsServerMultiface(std::vector<boost::shared_ptr<SlaveOpsServerIf> >& ifaces) : ifaces_(ifaces) {
   }
-  virtual ~SlaveOpsClientMultiface() {}
+  virtual ~SlaveOpsServerMultiface() {}
  protected:
-  std::vector<boost::shared_ptr<SlaveOpsClientIf> > ifaces_;
-  SlaveOpsClientMultiface() {}
-  void add(boost::shared_ptr<SlaveOpsClientIf> iface) {
+  std::vector<boost::shared_ptr<SlaveOpsServerIf> > ifaces_;
+  SlaveOpsServerMultiface() {}
+  void add(boost::shared_ptr<SlaveOpsServerIf> iface) {
     ifaces_.push_back(iface);
   }
  public:
@@ -362,12 +362,12 @@ class SlaveOpsClientMultiface : virtual public SlaveOpsClientIf {
 // The 'concurrent' client is a thread safe client that correctly handles
 // out of order responses.  It is slower than the regular client, so should
 // only be used when you need to share a connection among multiple threads
-class SlaveOpsClientConcurrentClient : virtual public SlaveOpsClientIf {
+class SlaveOpsServerConcurrentClient : virtual public SlaveOpsServerIf {
  public:
-  SlaveOpsClientConcurrentClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) {
+  SlaveOpsServerConcurrentClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) {
     setProtocol(prot);
   }
-  SlaveOpsClientConcurrentClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> iprot, boost::shared_ptr< ::apache::thrift::protocol::TProtocol> oprot) {
+  SlaveOpsServerConcurrentClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> iprot, boost::shared_ptr< ::apache::thrift::protocol::TProtocol> oprot) {
     setProtocol(iprot,oprot);
   }
  private:

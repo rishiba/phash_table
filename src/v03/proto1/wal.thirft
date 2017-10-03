@@ -39,5 +39,5 @@ struct SlaveOpsRetval {
 
 service SlaveManager {
 	Ping_ACK ping(),
-	SlaveOpsAck submit_ops_to_slave(1: SlaveOps ops),
+	SlaveOpsRetval submit_ops_to_slave(1: SlaveOps ops),
 }

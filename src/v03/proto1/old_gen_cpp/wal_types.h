@@ -28,7 +28,7 @@ class Ping_ACK;
 
 class SlaveOps;
 
-class SlaveOpsRetval;
+class SlaveOpsAck;
 
 typedef struct _ClientOps__isset {
   _ClientOps__isset() : op_type(false), key(false), value(false) {}
@@ -274,31 +274,31 @@ inline std::ostream& operator<<(std::ostream& out, const SlaveOps& obj)
   return out;
 }
 
-typedef struct _SlaveOpsRetval__isset {
-  _SlaveOpsRetval__isset() : seq_num_prefix(false), seq_number(false), client_number(false), errNo(false), errMsg(false) {}
+typedef struct _SlaveOpsAck__isset {
+  _SlaveOpsAck__isset() : seq_num_prefix(false), seq_number(false), client_number(false), errNo(false), errMsg(false) {}
   bool seq_num_prefix :1;
   bool seq_number :1;
   bool client_number :1;
   bool errNo :1;
   bool errMsg :1;
-} _SlaveOpsRetval__isset;
+} _SlaveOpsAck__isset;
 
-class SlaveOpsRetval : public virtual ::apache::thrift::TBase {
+class SlaveOpsAck : public virtual ::apache::thrift::TBase {
  public:
 
-  SlaveOpsRetval(const SlaveOpsRetval&);
-  SlaveOpsRetval& operator=(const SlaveOpsRetval&);
-  SlaveOpsRetval() : seq_num_prefix(0), seq_number(0), client_number(0), errNo(0), errMsg() {
+  SlaveOpsAck(const SlaveOpsAck&);
+  SlaveOpsAck& operator=(const SlaveOpsAck&);
+  SlaveOpsAck() : seq_num_prefix(0), seq_number(0), client_number(0), errNo(0), errMsg() {
   }
 
-  virtual ~SlaveOpsRetval() throw();
+  virtual ~SlaveOpsAck() throw();
   int64_t seq_num_prefix;
   int64_t seq_number;
   int32_t client_number;
   int16_t errNo;
   std::string errMsg;
 
-  _SlaveOpsRetval__isset __isset;
+  _SlaveOpsAck__isset __isset;
 
   void __set_seq_num_prefix(const int64_t val);
 
@@ -310,7 +310,7 @@ class SlaveOpsRetval : public virtual ::apache::thrift::TBase {
 
   void __set_errMsg(const std::string& val);
 
-  bool operator == (const SlaveOpsRetval & rhs) const
+  bool operator == (const SlaveOpsAck & rhs) const
   {
     if (!(seq_num_prefix == rhs.seq_num_prefix))
       return false;
@@ -324,11 +324,11 @@ class SlaveOpsRetval : public virtual ::apache::thrift::TBase {
       return false;
     return true;
   }
-  bool operator != (const SlaveOpsRetval &rhs) const {
+  bool operator != (const SlaveOpsAck &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const SlaveOpsRetval & ) const;
+  bool operator < (const SlaveOpsAck & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -336,9 +336,9 @@ class SlaveOpsRetval : public virtual ::apache::thrift::TBase {
   virtual void printTo(std::ostream& out) const;
 };
 
-void swap(SlaveOpsRetval &a, SlaveOpsRetval &b);
+void swap(SlaveOpsAck &a, SlaveOpsAck &b);
 
-inline std::ostream& operator<<(std::ostream& out, const SlaveOpsRetval& obj)
+inline std::ostream& operator<<(std::ostream& out, const SlaveOpsAck& obj)
 {
   obj.printTo(out);
   return out;

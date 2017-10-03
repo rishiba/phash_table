@@ -25,12 +25,12 @@ Template Instructions
 
 - Content instructions to prepare this document are provided in <brackets> within each section of this template.
 - Insert document content after the instructions.
-- Include diagrams, tables, and charts when possible, they can make the document more readable for others. 
-- Not all features will need each section in this document.  
-- Feel free to delete sections that aren’t relevant.  
-- If the only content for a section is "Not applicable", take out the whole section. 
+- Include diagrams, tables, and charts when possible, they can make the document more readable for others.
+- Not all features will need each section in this document.
+- Feel free to delete sections that aren’t relevant.
+- If the only content for a section is "Not applicable", take out the whole section.
 - The section headings are intended as a checklist, so do some research before deciding that something isn't applicable.
-- To help the writer the sections are marked as MUST-HAVE or OPTIONAL to indicate their importance. 
+- To help the writer the sections are marked as MUST-HAVE or OPTIONAL to indicate their importance.
 - Some features will need extra sections.  Feel free to add what you need.
 - Delete the "Template Revision History”, “Template Instructions" and “Document purpose and Use” sections, and also the sections instructions after completing the document sections. They should exist only in the template and not in the finished document.
 - Update the table of contents after editing.  (This is done by clicking to the left of the old table of contents and then pressing F9).
@@ -38,8 +38,8 @@ Template Instructions
 Document Purpose and Use
 ========================
 - The document is going to be used to clarify the requirements, and define the high level, externally visible behavior and implementation of your feature. It will also describe the testing for your feature.
-- The Requirements section will confirm that Engineering’s understanding of the requirements matches Product Management’s understanding of the requirements.  
-- Different parts of this document can be used as input for Tech Pubs, Usability Lab and QA. 
+- The Requirements section will confirm that Engineering’s understanding of the requirements matches Product Management’s understanding of the requirements.
+- Different parts of this document can be used as input for Tech Pubs, Usability Lab and QA.
 - Refer to the instructions with each section for more guidance.
 - In the final document there should be an obvious mapping: from the requirements to the high level design and from the high level design to the implementation of the feature.
 - Give a detailed overview of external and internal interfaces, data structures, algorithms, protocols, state machines, etc. as described in the template’s instructions for each section.
@@ -76,7 +76,7 @@ Review Record:
 ==============
 
 Reviewer
-Sections Reviewed 
+Sections Reviewed
 Date
 
 ============
@@ -112,9 +112,9 @@ FUNCTIONAL REQUIREMENTS
 *   In the context of insert/update/delete, make an entry into the intent log (aka WAL - write ahead log).
 *   When secondary node acknowledges the received WAL entries, primary cleans up the corresponding WAL entries (i.e. upto the ACKed sequence number).
 *   WAL can be kept in memory.
-*   If the secondary crashes and comes back up, it resyncs with primary.   No need to handle failure of primary. 
+*   If the secondary crashes and comes back up, it resyncs with primary.   No need to handle failure of primary.
 *   In  a steady state, the secondary should be in a condition to be used for searches (it could be inconsistent though - compared to primary)
-*   The replication to the secondary must be done via a background thread. 
+*   The replication to the secondary must be done via a background thread.
 
 USABILITY REQUIREMENTS
 ======================
@@ -168,46 +168,46 @@ ADMINISTRATOR’S VIEW
 < New administrative commands, changes to existing commands, policy settings, configuration files, default behavior, or anything else of interest to the system administrator.  >
 
 *   phash start
-    
+
     -   this will start the phash service on the primary node and the secondary node. User must give the IP/username and the password of the secondary node in the command line.
     -   the node on which this command is called will be the primary node and the other node will be the secondary node.
-    
+
 .. graphviz::
-   
-	digraph G {                                                                
+
+	digraph G {
 
 
-	user -> cd1 [label="Ops"]                                   
+	user -> cd1 [label="Ops"]
 
-	subgraph cluster_0 {                                                
-	style=filled;                                                   
-	color=lightgrey;                                                
-	node [style=filled,color=white];                                
+	subgraph cluster_0 {
+	style=filled;
+	color=lightgrey;
+	node [style=filled,color=white];
 
-	cp1 [label="class Phash"] 
+	cp1 [label="class Phash"]
 	cw1 [label="class WAL"]
 
 	cw1 -> cp1 [label="Ops"]
 	cm1 [label="class std::map"]
 	cp1 -> cm1
 	cd1 [label="class PhashDriver"   ]
-	cd1 -> cw1 [label="Ops"]                                        
-	}  
-	thirft [label="thirft"] 
-	cw1 -> thirft -> cw2  [label="data" style="dashed" arrowhead="normal" arrowtail="normal" dir="both"]                                                                     
+	cd1 -> cw1 [label="Ops"]
+	}
+	thirft [label="thirft"]
+	cw1 -> thirft -> cw2  [label="data" style="dashed" arrowhead="normal" arrowtail="normal" dir="both"]
 
-	subgraph cluster_1 {                                                
-	node [style=filled];                                            
+	subgraph cluster_1 {
+	node [style=filled];
 
-	label = "Secondary Node";                                     
-	color=blue 
-	cw2 [label="class WAL"] 
-	cp2 [label="class Phash"]                                                   
-	cw2 -> cp2 [label="Ops"] 
-	}                                                                   
-	cw1 -> cw2 [label="Heartbeat" style="dashed" arrowhead="normal" arrowtail="normal" dir="both"]                                                              
+	label = "Secondary Node";
+	color=blue
+	cw2 [label="class WAL"]
+	cp2 [label="class Phash"]
+	cw2 -> cp2 [label="Ops"]
+	}
+	cw1 -> cw2 [label="Heartbeat" style="dashed" arrowhead="normal" arrowtail="normal" dir="both"]
 
-        }                             
+        }
 
 class Ops
 ---------
@@ -301,7 +301,7 @@ EXTERNAL PROTOCOLS
 
 < Provide info about any external protocols used by this feature. >
 
-NOTIFICATION EVENTS 
+NOTIFICATION EVENTS
 ====================
 
 < Notification events, if any, raised by the feature. >
@@ -309,17 +309,17 @@ NOTIFICATION EVENTS
 OTHER HIGH LEVEL INFO
 =====================
 
-< List any restrictions on where or how this feature will be used (for example only for certain kinds of clients).  
+< List any restrictions on where or how this feature will be used (for example only for certain kinds of clients).
 Alternate design options may be mentioned, but only briefly and at the high level. If these alternate options need to be described better this can be done in an Appendix. >
 
 ===============
 DETAILED DESIGN
 ===============
 
-< Use this section to describe the details of your design and how they are expected to map to the actual implementation.  If your proposal modifies an existing feature or component, describe the proposed changes. 
+< Use this section to describe the details of your design and how they are expected to map to the actual implementation.  If your proposal modifies an existing feature or component, describe the proposed changes.
 
 All the interfaces from “High level design” are expected to be covered in this section but this time in lower-level detail. Also, here we want to include both internal and external interfaces and protocols, and cover details such as error recovery and logging, and optionally packaging and installation.
-Use of some diagrams is expected in this section. 
+Use of some diagrams is expected in this section.
 In some cases (some of) the following subsections may be merged. This section is MUST-HAVE. >
 
 FEATURE’S SUB-COMPONENTS
@@ -355,7 +355,7 @@ STATE MACHINES
 PLATFORM COMPATIIBILITY, SECURITY, AND SUPPORTABILITY/DEBUGGING
 ===============================================================
 
-< Describe any OS dependencies (version and patch level) as well as any dependencies on a specific version of some kernel-level or some user-level component. 
+< Describe any OS dependencies (version and patch level) as well as any dependencies on a specific version of some kernel-level or some user-level component.
 Describe the secure coding practices that you plan to use when developing this feature.
 Describe any debugging aids that will be included with your feature (for example, log records and log levels or display commands). >
 

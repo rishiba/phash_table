@@ -12,13 +12,12 @@ class SlaveManager:Slave {
         std::queue <std::int64_t> in_progress, done;
         std::unordered_map <std::int64_t, void *> seq_vs_ops;
 
+        PhashSlaveClient *client;
         int process_in_progress_records();
         int process_done_records();
         // The handler for the SlaveClient.
     public:
-        SlaveManager() {
-            // Start the connection and wait for someone to join.
-        }
+        SlaveManager();
 
         int submit_ops(SlaveOps *);
 };

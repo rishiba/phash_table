@@ -4,16 +4,16 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-#include "PhashServer.h"
+#include "PhashSlave.h"
 
 
 
 
-PhashServer_ping_args::~PhashServer_ping_args() throw() {
+PhashSlave_ping_args::~PhashSlave_ping_args() throw() {
 }
 
 
-uint32_t PhashServer_ping_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t PhashSlave_ping_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -41,10 +41,10 @@ uint32_t PhashServer_ping_args::read(::apache::thrift::protocol::TProtocol* ipro
   return xfer;
 }
 
-uint32_t PhashServer_ping_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t PhashSlave_ping_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("PhashServer_ping_args");
+  xfer += oprot->writeStructBegin("PhashSlave_ping_args");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
@@ -52,14 +52,14 @@ uint32_t PhashServer_ping_args::write(::apache::thrift::protocol::TProtocol* opr
 }
 
 
-PhashServer_ping_pargs::~PhashServer_ping_pargs() throw() {
+PhashSlave_ping_pargs::~PhashSlave_ping_pargs() throw() {
 }
 
 
-uint32_t PhashServer_ping_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t PhashSlave_ping_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("PhashServer_ping_pargs");
+  xfer += oprot->writeStructBegin("PhashSlave_ping_pargs");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
@@ -67,11 +67,11 @@ uint32_t PhashServer_ping_pargs::write(::apache::thrift::protocol::TProtocol* op
 }
 
 
-PhashServer_ping_result::~PhashServer_ping_result() throw() {
+PhashSlave_ping_result::~PhashSlave_ping_result() throw() {
 }
 
 
-uint32_t PhashServer_ping_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t PhashSlave_ping_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -112,11 +112,11 @@ uint32_t PhashServer_ping_result::read(::apache::thrift::protocol::TProtocol* ip
   return xfer;
 }
 
-uint32_t PhashServer_ping_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t PhashSlave_ping_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("PhashServer_ping_result");
+  xfer += oprot->writeStructBegin("PhashSlave_ping_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -129,11 +129,11 @@ uint32_t PhashServer_ping_result::write(::apache::thrift::protocol::TProtocol* o
 }
 
 
-PhashServer_ping_presult::~PhashServer_ping_presult() throw() {
+PhashSlave_ping_presult::~PhashSlave_ping_presult() throw() {
 }
 
 
-uint32_t PhashServer_ping_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t PhashSlave_ping_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -175,11 +175,11 @@ uint32_t PhashServer_ping_presult::read(::apache::thrift::protocol::TProtocol* i
 }
 
 
-PhashServer_submit_ops_args::~PhashServer_submit_ops_args() throw() {
+PhashSlave_submit_ops_to_slave_args::~PhashSlave_submit_ops_to_slave_args() throw() {
 }
 
 
-uint32_t PhashServer_submit_ops_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t PhashSlave_submit_ops_to_slave_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -220,10 +220,10 @@ uint32_t PhashServer_submit_ops_args::read(::apache::thrift::protocol::TProtocol
   return xfer;
 }
 
-uint32_t PhashServer_submit_ops_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t PhashSlave_submit_ops_to_slave_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("PhashServer_submit_ops_args");
+  xfer += oprot->writeStructBegin("PhashSlave_submit_ops_to_slave_args");
 
   xfer += oprot->writeFieldBegin("ops", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->ops.write(oprot);
@@ -235,14 +235,14 @@ uint32_t PhashServer_submit_ops_args::write(::apache::thrift::protocol::TProtoco
 }
 
 
-PhashServer_submit_ops_pargs::~PhashServer_submit_ops_pargs() throw() {
+PhashSlave_submit_ops_to_slave_pargs::~PhashSlave_submit_ops_to_slave_pargs() throw() {
 }
 
 
-uint32_t PhashServer_submit_ops_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t PhashSlave_submit_ops_to_slave_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("PhashServer_submit_ops_pargs");
+  xfer += oprot->writeStructBegin("PhashSlave_submit_ops_to_slave_pargs");
 
   xfer += oprot->writeFieldBegin("ops", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->ops)).write(oprot);
@@ -254,11 +254,11 @@ uint32_t PhashServer_submit_ops_pargs::write(::apache::thrift::protocol::TProtoc
 }
 
 
-PhashServer_submit_ops_result::~PhashServer_submit_ops_result() throw() {
+PhashSlave_submit_ops_to_slave_result::~PhashSlave_submit_ops_to_slave_result() throw() {
 }
 
 
-uint32_t PhashServer_submit_ops_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t PhashSlave_submit_ops_to_slave_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -299,11 +299,11 @@ uint32_t PhashServer_submit_ops_result::read(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t PhashServer_submit_ops_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t PhashSlave_submit_ops_to_slave_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("PhashServer_submit_ops_result");
+  xfer += oprot->writeStructBegin("PhashSlave_submit_ops_to_slave_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -316,11 +316,11 @@ uint32_t PhashServer_submit_ops_result::write(::apache::thrift::protocol::TProto
 }
 
 
-PhashServer_submit_ops_presult::~PhashServer_submit_ops_presult() throw() {
+PhashSlave_submit_ops_to_slave_presult::~PhashSlave_submit_ops_to_slave_presult() throw() {
 }
 
 
-uint32_t PhashServer_submit_ops_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t PhashSlave_submit_ops_to_slave_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -361,18 +361,18 @@ uint32_t PhashServer_submit_ops_presult::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-void PhashServerClient::ping(Ping_ACK& _return)
+void PhashSlaveClient::ping(Ping_ACK& _return)
 {
   send_ping();
   recv_ping(_return);
 }
 
-void PhashServerClient::send_ping()
+void PhashSlaveClient::send_ping()
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("ping", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  PhashServer_ping_pargs args;
+  PhashSlave_ping_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -380,7 +380,7 @@ void PhashServerClient::send_ping()
   oprot_->getTransport()->flush();
 }
 
-void PhashServerClient::recv_ping(Ping_ACK& _return)
+void PhashSlaveClient::recv_ping(Ping_ACK& _return)
 {
 
   int32_t rseqid = 0;
@@ -405,7 +405,7 @@ void PhashServerClient::recv_ping(Ping_ACK& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  PhashServer_ping_presult result;
+  PhashSlave_ping_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -418,18 +418,18 @@ void PhashServerClient::recv_ping(Ping_ACK& _return)
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "ping failed: unknown result");
 }
 
-void PhashServerClient::submit_ops(ClientOpsRetval& _return, const ClientOps& ops)
+void PhashSlaveClient::submit_ops_to_slave(SlaveOpsAck& _return, const SlaveOps& ops)
 {
-  send_submit_ops(ops);
-  recv_submit_ops(_return);
+  send_submit_ops_to_slave(ops);
+  recv_submit_ops_to_slave(_return);
 }
 
-void PhashServerClient::send_submit_ops(const ClientOps& ops)
+void PhashSlaveClient::send_submit_ops_to_slave(const SlaveOps& ops)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("submit_ops", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("submit_ops_to_slave", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  PhashServer_submit_ops_pargs args;
+  PhashSlave_submit_ops_to_slave_pargs args;
   args.ops = &ops;
   args.write(oprot_);
 
@@ -438,7 +438,7 @@ void PhashServerClient::send_submit_ops(const ClientOps& ops)
   oprot_->getTransport()->flush();
 }
 
-void PhashServerClient::recv_submit_ops(ClientOpsRetval& _return)
+void PhashSlaveClient::recv_submit_ops_to_slave(SlaveOpsAck& _return)
 {
 
   int32_t rseqid = 0;
@@ -458,12 +458,12 @@ void PhashServerClient::recv_submit_ops(ClientOpsRetval& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("submit_ops") != 0) {
+  if (fname.compare("submit_ops_to_slave") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  PhashServer_submit_ops_presult result;
+  PhashSlave_submit_ops_to_slave_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -473,10 +473,10 @@ void PhashServerClient::recv_submit_ops(ClientOpsRetval& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "submit_ops failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "submit_ops_to_slave failed: unknown result");
 }
 
-bool PhashServerProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
+bool PhashSlaveProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
   ProcessMap::iterator pfn;
   pfn = processMap_.find(fname);
   if (pfn == processMap_.end()) {
@@ -495,34 +495,34 @@ bool PhashServerProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* i
   return true;
 }
 
-void PhashServerProcessor::process_ping(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void PhashSlaveProcessor::process_ping(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("PhashServer.ping", callContext);
+    ctx = this->eventHandler_->getContext("PhashSlave.ping", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "PhashServer.ping");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "PhashSlave.ping");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "PhashServer.ping");
+    this->eventHandler_->preRead(ctx, "PhashSlave.ping");
   }
 
-  PhashServer_ping_args args;
+  PhashSlave_ping_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "PhashServer.ping", bytes);
+    this->eventHandler_->postRead(ctx, "PhashSlave.ping", bytes);
   }
 
-  PhashServer_ping_result result;
+  PhashSlave_ping_result result;
   try {
     iface_->ping(result.success);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "PhashServer.ping");
+      this->eventHandler_->handlerError(ctx, "PhashSlave.ping");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
@@ -535,7 +535,7 @@ void PhashServerProcessor::process_ping(int32_t seqid, ::apache::thrift::protoco
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "PhashServer.ping");
+    this->eventHandler_->preWrite(ctx, "PhashSlave.ping");
   }
 
   oprot->writeMessageBegin("ping", ::apache::thrift::protocol::T_REPLY, seqid);
@@ -545,42 +545,42 @@ void PhashServerProcessor::process_ping(int32_t seqid, ::apache::thrift::protoco
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "PhashServer.ping", bytes);
+    this->eventHandler_->postWrite(ctx, "PhashSlave.ping", bytes);
   }
 }
 
-void PhashServerProcessor::process_submit_ops(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void PhashSlaveProcessor::process_submit_ops_to_slave(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("PhashServer.submit_ops", callContext);
+    ctx = this->eventHandler_->getContext("PhashSlave.submit_ops_to_slave", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "PhashServer.submit_ops");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "PhashSlave.submit_ops_to_slave");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "PhashServer.submit_ops");
+    this->eventHandler_->preRead(ctx, "PhashSlave.submit_ops_to_slave");
   }
 
-  PhashServer_submit_ops_args args;
+  PhashSlave_submit_ops_to_slave_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "PhashServer.submit_ops", bytes);
+    this->eventHandler_->postRead(ctx, "PhashSlave.submit_ops_to_slave", bytes);
   }
 
-  PhashServer_submit_ops_result result;
+  PhashSlave_submit_ops_to_slave_result result;
   try {
-    iface_->submit_ops(result.success, args.ops);
+    iface_->submit_ops_to_slave(result.success, args.ops);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "PhashServer.submit_ops");
+      this->eventHandler_->handlerError(ctx, "PhashSlave.submit_ops_to_slave");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("submit_ops", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("submit_ops_to_slave", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -589,40 +589,40 @@ void PhashServerProcessor::process_submit_ops(int32_t seqid, ::apache::thrift::p
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "PhashServer.submit_ops");
+    this->eventHandler_->preWrite(ctx, "PhashSlave.submit_ops_to_slave");
   }
 
-  oprot->writeMessageBegin("submit_ops", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("submit_ops_to_slave", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "PhashServer.submit_ops", bytes);
+    this->eventHandler_->postWrite(ctx, "PhashSlave.submit_ops_to_slave", bytes);
   }
 }
 
-::boost::shared_ptr< ::apache::thrift::TProcessor > PhashServerProcessorFactory::getProcessor(const ::apache::thrift::TConnectionInfo& connInfo) {
-  ::apache::thrift::ReleaseHandler< PhashServerIfFactory > cleanup(handlerFactory_);
-  ::boost::shared_ptr< PhashServerIf > handler(handlerFactory_->getHandler(connInfo), cleanup);
-  ::boost::shared_ptr< ::apache::thrift::TProcessor > processor(new PhashServerProcessor(handler));
+::boost::shared_ptr< ::apache::thrift::TProcessor > PhashSlaveProcessorFactory::getProcessor(const ::apache::thrift::TConnectionInfo& connInfo) {
+  ::apache::thrift::ReleaseHandler< PhashSlaveIfFactory > cleanup(handlerFactory_);
+  ::boost::shared_ptr< PhashSlaveIf > handler(handlerFactory_->getHandler(connInfo), cleanup);
+  ::boost::shared_ptr< ::apache::thrift::TProcessor > processor(new PhashSlaveProcessor(handler));
   return processor;
 }
 
-void PhashServerConcurrentClient::ping(Ping_ACK& _return)
+void PhashSlaveConcurrentClient::ping(Ping_ACK& _return)
 {
   int32_t seqid = send_ping();
   recv_ping(_return, seqid);
 }
 
-int32_t PhashServerConcurrentClient::send_ping()
+int32_t PhashSlaveConcurrentClient::send_ping()
 {
   int32_t cseqid = this->sync_.generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(&this->sync_);
   oprot_->writeMessageBegin("ping", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  PhashServer_ping_pargs args;
+  PhashSlave_ping_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -633,7 +633,7 @@ int32_t PhashServerConcurrentClient::send_ping()
   return cseqid;
 }
 
-void PhashServerConcurrentClient::recv_ping(Ping_ACK& _return, const int32_t seqid)
+void PhashSlaveConcurrentClient::recv_ping(Ping_ACK& _return, const int32_t seqid)
 {
 
   int32_t rseqid = 0;
@@ -671,7 +671,7 @@ void PhashServerConcurrentClient::recv_ping(Ping_ACK& _return, const int32_t seq
         using ::apache::thrift::protocol::TProtocolException;
         throw TProtocolException(TProtocolException::INVALID_DATA);
       }
-      PhashServer_ping_presult result;
+      PhashSlave_ping_presult result;
       result.success = &_return;
       result.read(iprot_);
       iprot_->readMessageEnd();
@@ -693,19 +693,19 @@ void PhashServerConcurrentClient::recv_ping(Ping_ACK& _return, const int32_t seq
   } // end while(true)
 }
 
-void PhashServerConcurrentClient::submit_ops(ClientOpsRetval& _return, const ClientOps& ops)
+void PhashSlaveConcurrentClient::submit_ops_to_slave(SlaveOpsAck& _return, const SlaveOps& ops)
 {
-  int32_t seqid = send_submit_ops(ops);
-  recv_submit_ops(_return, seqid);
+  int32_t seqid = send_submit_ops_to_slave(ops);
+  recv_submit_ops_to_slave(_return, seqid);
 }
 
-int32_t PhashServerConcurrentClient::send_submit_ops(const ClientOps& ops)
+int32_t PhashSlaveConcurrentClient::send_submit_ops_to_slave(const SlaveOps& ops)
 {
   int32_t cseqid = this->sync_.generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(&this->sync_);
-  oprot_->writeMessageBegin("submit_ops", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("submit_ops_to_slave", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  PhashServer_submit_ops_pargs args;
+  PhashSlave_submit_ops_to_slave_pargs args;
   args.ops = &ops;
   args.write(oprot_);
 
@@ -717,7 +717,7 @@ int32_t PhashServerConcurrentClient::send_submit_ops(const ClientOps& ops)
   return cseqid;
 }
 
-void PhashServerConcurrentClient::recv_submit_ops(ClientOpsRetval& _return, const int32_t seqid)
+void PhashSlaveConcurrentClient::recv_submit_ops_to_slave(SlaveOpsAck& _return, const int32_t seqid)
 {
 
   int32_t rseqid = 0;
@@ -746,7 +746,7 @@ void PhashServerConcurrentClient::recv_submit_ops(ClientOpsRetval& _return, cons
         iprot_->readMessageEnd();
         iprot_->getTransport()->readEnd();
       }
-      if (fname.compare("submit_ops") != 0) {
+      if (fname.compare("submit_ops_to_slave") != 0) {
         iprot_->skip(::apache::thrift::protocol::T_STRUCT);
         iprot_->readMessageEnd();
         iprot_->getTransport()->readEnd();
@@ -755,7 +755,7 @@ void PhashServerConcurrentClient::recv_submit_ops(ClientOpsRetval& _return, cons
         using ::apache::thrift::protocol::TProtocolException;
         throw TProtocolException(TProtocolException::INVALID_DATA);
       }
-      PhashServer_submit_ops_presult result;
+      PhashSlave_submit_ops_to_slave_presult result;
       result.success = &_return;
       result.read(iprot_);
       iprot_->readMessageEnd();
@@ -767,7 +767,7 @@ void PhashServerConcurrentClient::recv_submit_ops(ClientOpsRetval& _return, cons
         return;
       }
       // in a bad state, don't commit
-      throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "submit_ops failed: unknown result");
+      throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "submit_ops_to_slave failed: unknown result");
     }
     // seqid != rseqid
     this->sync_.updatePending(fname, mtype, rseqid);
