@@ -6,12 +6,13 @@
 #include <string>
 #include "wal_constants.h"
 #include <iostream>
+#include "SlaveManager.h"
 
 OpsReplicator::OpsReplicator() {
     localSlave = new SlaveLocal();
 	sequence_number = 0;
-//	slaves = new std::vector<SlaveManager *>;
-//    slaves->push_back(new SlaveManager(9050, "localhost"));
+	slaves = new std::vector<SlaveManager *>;
+    slaves->push_back(new SlaveManager(9050, "localhost"));
 }
 
 long OpsReplicator::get_next_seq_num(void) {
@@ -19,11 +20,12 @@ long OpsReplicator::get_next_seq_num(void) {
 }
 
 void OpsReplicator::push_into_slaves(SlaveOpsArguments *ops) {
-  //  for (auto slave = slaves->begin(); slave != slaves->end(); slave++, i++) {
-    //    std::cerr <<"\nPassing ops to " << i <<std::endl;
-//
-  //      (*slave)->submit_ops(ops);
-//    }
+	int i = 0;
+    for (auto slave = slaves->begin(); slave != slaves->end(); slave++, i++) {
+        std::cerr <<"\nPassing ops to " << i <<std::endl;
+
+        (*slave)->submit_ops(ops);
+    }
 }
 
 int OpsReplicator::insert_record(std::string key, std::string value) {
@@ -34,7 +36,8 @@ int OpsReplicator::insert_record(std::string key, std::string value) {
     ops->value = value;
     ops->seq_number = this->get_next_seq_num();
 
-    retval = localSlave->submit_ops(ops);
+    SlaveOpsArguments &ref_ops = *ops;
+    retval = localSlave->submit_ops(ref_ops);
 
     if (retval != SUCCESS) {
         // Do not add this to the other remote threads.
@@ -65,7 +68,8 @@ int OpsReplicator::search_record(std::string const key, std::string &value) {
     ops->key = key;
     ops->seq_number = seq_number;
 
-    retval = localSlave->submit_ops(ops);
+    SlaveOpsArguments &ref_ops = *ops;
+    retval = localSlave->submit_ops(ref_ops);
 
     if (retval != SUCCESS) {
         // Do not add this to the other remote threads.

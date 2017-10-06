@@ -29,17 +29,18 @@ int SlaveLocal::search_record(std::string const key, std::string &value) {
     return map->search_record(key, value);
 }
 
-int SlaveLocal::submit_ops(SlaveOpsArguments *ops) {
-	int optype = ops->op_type;
-    std::cerr << "\nPerfroming Operation opType: " << ops->op_type << " with seq number as " << ops->seq_number << std::endl;
+int SlaveLocal::submit_ops(const SlaveOpsArguments &ops) {
+	int optype = ops.op_type;
+    std::cerr << "\nPerfroming Operation opType: " << ops.op_type << " with seq number as " << ops.seq_number << std::endl;
 
+    std::string value;
 	switch (optype) {
 		case OP_INSERT:
-			return this->insert_record(ops->key, ops->value);
+			return this->insert_record(ops.key, ops.value);
 			break;
 		
 		case OP_SEARCH:
-            return this->search_record(ops->key, ops->value);
+            return this->search_record(ops.key, value);
 			break;
 
 		case OP_UPDATE:

@@ -2,11 +2,15 @@
 // You should copy it to another filename to avoid overwriting it.
 
 #include "SlaveOpsServer.h"
+#include "wal_user.h"
+#include "ops.h"
+
 #include <thrift/protocol/TBinaryProtocol.h>
 #include <thrift/server/TSimpleServer.h>
 #include <thrift/transport/TServerSocket.h>
 #include <thrift/transport/TBufferTransports.h>
 #include <iostream>
+#include "SlaveLocal.h"
 
 using namespace ::apache::thrift;
 using namespace ::apache::thrift::protocol;
@@ -16,9 +20,12 @@ using namespace ::apache::thrift::server;
 using boost::shared_ptr;
 
 class SlaveOpsServerHandler : virtual public SlaveOpsServerIf {
+	private:
+		SlaveLocal *local;
 	public:
 		SlaveOpsServerHandler() {
 			// Your initialization goes here
+			local = new SlaveLocal();
 		}
 
 		void ping(Ping_ACK& _return) {
@@ -29,6 +36,20 @@ class SlaveOpsServerHandler : virtual public SlaveOpsServerIf {
 		void submit_ops_to_slave(SlaveOpsRetval& _return, const SlaveOpsArguments& ops) {
 			// Your implementation goes here
 			printf("submit_ops_to_slave\n");
+			int retval;
+
+			retval = local->submit_ops(ops);
+			_return.seq_num_prefix = ops.seq_num_prefix;
+			_return.seq_number = ops.seq_number;
+			if (retval == SUCCESS) {
+				_return.errNo = SUCCESS;
+				_return.errMsg = "Operation Successful";
+			} else if (retval == ERR_INCORRECT_PLACE_TO_RETURN) {
+			} else {
+				
+				_return.errNo = retval;
+				_return.errMsg = "Operation Failed";
+			}
 			ops.printTo(std::cout);
 		}
 

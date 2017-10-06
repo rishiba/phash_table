@@ -33,7 +33,7 @@ class ClientOpsServerHandler : virtual public ClientOpsServerIf {
 };
 
 int main(int argc, char **argv) {
-  int port = 9090;
+  int port = 9050;
   shared_ptr<ClientOpsServerHandler> handler(new ClientOpsServerHandler());
   shared_ptr<TProcessor> processor(new ClientOpsServerProcessor(handler));
   shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
